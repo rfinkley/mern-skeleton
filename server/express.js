@@ -7,12 +7,15 @@ import Template from '../template.js';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
 import devBundle from './devBundle'; //FOR DEVELOPMENT ONLY -- Comment out in Prod
+import path from 'path';
 
 const app = express();
+const CURRENT_WORKING_DIR = process.cwd();
 devBundle.compile(app); //FOR DEVELOPMENT ONLY -- Comment out in Prod
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use('/dist', express.static(path.join(CURRENT_WORKING_DIR, 'dist')));
 app.use(cookieParser());
 app.use(compress());
 app.use(helmet());
