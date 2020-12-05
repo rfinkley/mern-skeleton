@@ -6,8 +6,10 @@ import helmet from 'helmet';
 import Template from '../template.js';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
+import devBundle from './devBundle'; //FOR DEVELOPMENT ONLY -- Comment out in Prod
 
 const app = express();
+devBundle.compile(app); //FOR DEVELOPMENT ONLY -- Comment out in Prod
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
