@@ -7,7 +7,8 @@ export default () => {
         <title>MERN Skeleton</title>
     </head>
     <body>
-        <div id="root">Hello World</div>
+        <div id="root">If you're reading this you're not REACTing</div>
+        <script type="text/javascript" src="/dist/bundle.js"></script>
     </body>
     </html>`;
 };
