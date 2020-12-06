@@ -21,4 +21,51 @@ const useStyles = makeStyles((theme) => ({
   media: {
     minHeight: 400,
   },
+  credit: {
+    padding: 10,
+    textAlign: 'right',
+    backgroundColor: '#ededed',
+    borderBottom: '1px solid #d0d0d0',
+    '& a': {
+      color: '#3f4771',
+    },
+  },
 }));
+
+function Home() {
+  const classes = useStyles();
+  return (
+    <Card className={classes.card}>
+      <Typography variant="h6" className={classes.title}>
+        Home Page
+      </Typography>
+      <CardMedia
+        className={classes.media}
+        image={girlSmiling}
+        title="Girl Smiling"
+      />
+      <Typography
+        variant="body2"
+        component="p"
+        className={classes.credit}
+        color="textSecondary"
+      >
+        Photo by{' '}
+        <a href="https://unsplash.com/@skmuse_?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+          Suad Kamardeen
+        </a>{' '}
+        on{' '}
+        <a href="https://unsplash.com/s/photos/laugh?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">
+          Unsplash
+        </a>
+      </Typography>
+      <CardContent>
+        <Typography variant="body2" component="p">
+          Welcome to the MERN Skeleton home page.
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default Home;
