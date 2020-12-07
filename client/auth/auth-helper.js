@@ -15,8 +15,9 @@ const auth = {
   clearJWT(cb) {
     if (typeof window !== 'undefined') sessionStorage.removeItem('jwt');
     cb();
-    signout().then((data) => {
-      document.cookie = 't=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
-    });
+    // signout() is optional depending on whether you are using cookies or session storage to store user credentials
+    // signout().then((data) => {
+    //   document.cookie = 't=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
+    // });
   },
 };
