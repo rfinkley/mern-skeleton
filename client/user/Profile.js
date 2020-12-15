@@ -17,7 +17,18 @@ import auth from './../auth/auth-helper';
 import { read } from './api-user.js';
 import { Redirect, Link } from 'react-router-dom';
 
-const useStyles = makeStyles((theme) => ({}));
+const useStyles = makeStyles((theme) => ({
+  root: theme.mixins.gutters({
+    maxWidth: 600,
+    margin: 'auto',
+    padding: theme.spacing(3),
+    marginTop: theme.spacing(5),
+  }),
+  title: {
+    marginTop: theme.spacing(3),
+    color: theme.palette.protectedTitle,
+  },
+}));
 
 const Profile = () => {};
 
