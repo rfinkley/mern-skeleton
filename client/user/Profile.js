@@ -57,6 +57,10 @@ function Profile({ match }) {
       abortController.abort();
     };
   }, [match.params.userId]);
+
+  if (redirectToSignin) {
+    return <Redirect to="/signin/" />;
+  }
 }
 
 export default Profile;
