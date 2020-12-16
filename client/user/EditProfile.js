@@ -37,6 +37,16 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function EditProfile({ mathch }) {}
+function EditProfile({ match }) {
+  const classes = useStyles();
+  const [values, setValues] = useState({
+    name: '',
+    password: '',
+    email: '',
+    open: false,
+    error: '',
+    redirectToProfile: false,
+  });
+}
 
 export default EditProfile;
