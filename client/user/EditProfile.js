@@ -10,6 +10,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import auth from './../auth/auth-helper';
 import { read, update } from './api-user.js';
 import { Redirect } from 'react-router-dom';
+import { values } from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -92,6 +93,10 @@ function EditProfile({ match }) {
         setValues({ ...values, userId: data._id, redirectToProfile: true });
       }
     });
+  };
+
+  const handleChange = (name) => (event) => {
+    setValues({ ...values, [name]: event.target.value });
   };
 }
 
