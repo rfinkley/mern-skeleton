@@ -47,7 +47,29 @@ function EditProfile({ match }) {
     error: '',
     redirectToProfile: false,
   });
-  //commit test -- 2
+
+  const jwt = auth.isAuthenticated();
+
+  useEffect(() => {
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+    read(
+      {
+        userId: match.params.userId,
+      },
+      { t: jwt.token },
+      signal
+    ).then((data) => {
+      if (data && data.error) {
+        setValues({ ...values, error: data.name, email: data.email });
+      } else {
+        setValues({ ...values, name: data.name, email: data.email });
+      }
+    });
+    return function cleanup() {
+      abortController.abort();
+    };
+  }, [match.params.userId]);
 }
 
 export default EditProfile;
