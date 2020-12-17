@@ -47,7 +47,7 @@ function EditProfile({ match }) {
     error: '',
     redirectToProfile: false,
   });
-  //commit test
+  //commit test -- 2
 }
 
 export default EditProfile;
