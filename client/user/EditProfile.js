@@ -70,6 +70,29 @@ function EditProfile({ match }) {
       abortController.abort();
     };
   }, [match.params.userId]);
+
+  const clickSubmit = () => {
+    const user = {
+      name: values.name || undefined,
+      email: values.email || undefined,
+      password: values.password || undefined,
+    };
+    update(
+      {
+        userId: match.params.userId,
+      },
+      {
+        t: jwt.token,
+      },
+      user
+    ).then((data) => {
+      if (data && data.error) {
+        setValues({ ...values, error: data.error });
+      } else {
+        setValues({ ...values, userId: data._id, redirectToProfile: true });
+      }
+    });
+  };
 }
 
 export default EditProfile;
