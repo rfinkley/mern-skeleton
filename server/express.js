@@ -38,7 +38,7 @@ app.use('/', authRoutes);
 app.get('*', (req, res) => {
   const sheets = new ServerStyleSheets();
   const context = {};
-  const markup = ReactDOMServer.renderToString(
+  const markup = ReactDomServer.renderToString(
     sheets.collect(
       <StaticRouter location={req.url} context={context}>
         <ThemeProvider theme={theme}>
