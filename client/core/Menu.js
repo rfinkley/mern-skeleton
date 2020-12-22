@@ -14,7 +14,7 @@ const isActive = (history, path) => {
 };
 
 const Menu = withRouter(({ history }) => {
-  <Appbar position="static">
+  <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" color="inherit">
         MERN Skeleton
@@ -60,7 +60,7 @@ const Menu = withRouter(({ history }) => {
         </span>
       )}
     </Toolbar>
-  </Appbar>;
+  </AppBar>;
 });
 
 export default Menu;
