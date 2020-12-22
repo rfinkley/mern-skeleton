@@ -7,7 +7,6 @@ import helmet from 'helmet';
 import Template from '../template.js';
 import userRoutes from './routes/user.routes';
 import authRoutes from './routes/auth.routes';
-import devBundle from './devBundle'; //FOR DEVELOPMENT ONLY -- Comment out in Prod
 
 //modules for server side rendering
 import React from 'react';
@@ -17,8 +16,11 @@ import { StaticRouter } from 'react-router-dom';
 import { ServerStyleSheets, ThemeProvider } from '@material-ui/styles';
 import theme from './../client/theme';
 
-const app = express();
+import devBundle from './devBundle'; //FOR DEVELOPMENT ONLY -- Comment out in Prod
+
 const CURRENT_WORKING_DIR = process.cwd();
+const app = express();
+
 devBundle.compile(app); //FOR DEVELOPMENT ONLY -- Comment out in Prod
 
 app.use(express.json());
