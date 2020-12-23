@@ -13,7 +13,7 @@ const isActive = (history, path) => {
   else return { color: '#ffffff' };
 };
 
-const Menu = withRouter(({ history }) => {
+const Menu = withRouter(({ history }) => (
   <AppBar position="static">
     <Toolbar>
       <Typography variant="h6" color="inherit">
@@ -60,7 +60,7 @@ const Menu = withRouter(({ history }) => {
         </span>
       )}
     </Toolbar>
-  </AppBar>;
-});
+  </AppBar>
+));
 
 export default Menu;
