@@ -59,7 +59,7 @@ function Profile({ match }) {
   }, [match.params.userId]);
 
   if (redirectToSignin) {
-    return <Redirect to="/signin/" />;
+    return <Redirect to="/signin" />;
   }
 
   return (
