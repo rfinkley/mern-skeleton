@@ -10,7 +10,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import auth from './../auth/auth-helper';
 import { read, update } from './api-user.js';
 import { Redirect } from 'react-router-dom';
-import { values } from 'lodash';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function EditProfile({ match }) {
+export default function EditProfile({ match }) {
   const classes = useStyles();
   const [values, setValues] = useState({
     name: '',
@@ -48,12 +47,12 @@ function EditProfile({ match }) {
     error: '',
     redirectToProfile: false,
   });
-
   const jwt = auth.isAuthenticated();
 
   useEffect(() => {
     const abortController = new AbortController();
     const signal = abortController.signal;
+
     read(
       {
         userId: match.params.userId,
@@ -62,7 +61,7 @@ function EditProfile({ match }) {
       signal
     ).then((data) => {
       if (data && data.error) {
-        setValues({ ...values, error: data.name, email: data.email });
+        setValues({ ...values, error: data.error });
       } else {
         setValues({ ...values, name: data.name, email: data.email });
       }
@@ -94,7 +93,6 @@ function EditProfile({ match }) {
       }
     });
   };
-
   const handleChange = (name) => (event) => {
     setValues({ ...values, [name]: event.target.value });
   };
@@ -102,7 +100,6 @@ function EditProfile({ match }) {
   if (values.redirectToProfile) {
     return <Redirect to={'/user/' + values.userId} />;
   }
-
   return (
     <Card className={classes.card}>
       <CardContent>
@@ -117,7 +114,7 @@ function EditProfile({ match }) {
           onChange={handleChange('name')}
           margin="normal"
         />
-        <br/>
+        <br />
         <TextField
           id="email"
           type="email"
@@ -127,7 +124,7 @@ function EditProfile({ match }) {
           onChange={handleChange('email')}
           margin="normal"
         />
-        <br/>
+        <br />
         <TextField
           id="password"
           type="password"
@@ -137,21 +134,26 @@ function EditProfile({ match }) {
           onChange={handleChange('password')}
           margin="normal"
         />
-        <br/>
-        {
-          values.error && (
+        <br />{' '}
+        {values.error && (
           <Typography component="p" color="error">
-            <Icon color="error"  className={classes.error}>error</Icon>
-          </Typography>)
-        }
+            <Icon color="error" className={classes.error}>
+              error
+            </Icon>
+            {values.error}
+          </Typography>
+        )}
       </CardContent>
       <CardActions>
-        <Button color="primary" variant="contained" onClick={clickSubmit} className={classes.submit}>
+        <Button
+          color="primary"
+          variant="contained"
+          onClick={clickSubmit}
+          className={classes.submit}
+        >
           Submit
         </Button>
       </CardActions>
     </Card>
   );
 }
-
-export default EditProfile;
