@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function Profile({ match }) {
+export default function Profile({ match }) {
   const classes = useStyles();
   const [user, setUser] = useState({});
   const [redirectToSignin, setRedirectToSignin] = useState(false);
@@ -53,6 +53,7 @@ function Profile({ match }) {
         setUser(data);
       }
     });
+
     return function cleanup() {
       abortController.abort();
     };
@@ -61,7 +62,6 @@ function Profile({ match }) {
   if (redirectToSignin) {
     return <Redirect to="/signin" />;
   }
-
   return (
     <Paper className={classes.root} elevation={4}>
       <Typography variant="h6" className={classes.title}>
@@ -74,17 +74,18 @@ function Profile({ match }) {
               <Person />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary={user.name} secondary={user.email} />
-          {auth.isAuthenticated().user && auth.isAuthenticated().user._id && (
-            <ListItemSecondaryAction>
-              <Link to={'/user/edit/' + user._id}>
-                <IconButton aria-label="Edit" color="primary">
-                  <Edit />
-                </IconButton>
-              </Link>
-              <DeleteUser userId={user._id} />
-            </ListItemSecondaryAction>
-          )}
+          <ListItemText primary={user.name} secondary={user.email} />{' '}
+          {auth.isAuthenticated().user &&
+            auth.isAuthenticated().user._id == user._id && (
+              <ListItemSecondaryAction>
+                <Link to={'/user/edit/' + user._id}>
+                  <IconButton aria-label="Edit" color="primary">
+                    <Edit />
+                  </IconButton>
+                </Link>
+                <DeleteUser userId={user._id} />
+              </ListItemSecondaryAction>
+            )}
         </ListItem>
         <Divider />
         <ListItem>
@@ -96,5 +97,3 @@ function Profile({ match }) {
     </Paper>
   );
 }
-
-export default Profile;
