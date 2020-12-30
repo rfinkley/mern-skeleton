@@ -36,7 +36,31 @@ Mostly this repo served as my own project for learning how to build a simple MER
 ## Screenshots
 
 Here is the unauthenticated Home Page
-![Unauthenticated Home Page](./client/assets/images/home.png "Unauthenticated Home Page")
+![Unauthenticated Home Page](./client/assets/images/home.png)
+
+This is the Users page which shows a list of all users in the database with a link to their profile page.
+![Users Page](./client/assets/images/users.png)
+
+This is the unauthenticated Profile Page. This component will not all an unauthorized user to edit or delete the user profile.
+![Unauthenticated Profile Page](./client/assets/images/profile-another-user.png)
+
+This is the Signup page. This navigation link will display if the user is not currently authenticated.
+![Signup Page](./client/assets/images/profile-another-user.png)
+
+This is the Signin page.
+![Signin Page](./client/assets/images/sign-in.png)
+
+This is the authenticated Home Page
+![Authenticated Home Page](./client/assets/images/signed-in.png)
+
+This is the authenticated & authorized view of the Profile Page. A user has the option to Edit or Delete their profile.
+![Authenticated/Authorized Profile Page](./client/assets/images/profile-signed-in.png)
+
+This is the Edit Profile Page.
+![Edit Profile Page](./client/assets/images/edit-profile.png)
+
+
+
 
 
 
