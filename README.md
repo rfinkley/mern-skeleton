@@ -36,7 +36,7 @@ Mostly this repo served as my own project for learning how to build a simple MER
 ## Screenshots
 
 Here is the unauthenticated Home Page
-![Unauthenticated Home Page](.\client/assets/images/home.png "Unauthenticated Home Page")
+![Unauthenticated Home Page](./client/assets/images/home.png "Unauthenticated Home Page")
 
 
 
