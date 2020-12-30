@@ -45,7 +45,7 @@ This is the unauthenticated Profile Page. This component will not all an unautho
 ![Unauthenticated Profile Page](./client/assets/images/profile-another-user.png)
 
 This is the Signup page. This navigation link will display if the user is not currently authenticated.
-![Signup Page](./client/assets/images/profile-another-user.png)
+![Signup Page](./client/assets/images/sign-up.png)
 
 This is the Signin page.
 ![Signin Page](./client/assets/images/sign-in.png)
